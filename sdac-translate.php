@@ -58,7 +58,7 @@ function sdac_translate_shared_css() {
 }
 
 //Custom Admin CSS
-function sdac_translate_admin_css() {
+function sdac_translate_admin_css_js() {
 	global $sdac_plugin_url;
 	echo '
 		<style type="text/css">
@@ -80,22 +80,19 @@ function sdac_translate_admin_css() {
 			.wp-admin #sdacTranslate .item p.countryOption span {height:16px;line-height:16px !important;}
 			'.sdac_translate_shared_css().'
 		</style>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$("#checkAll").click( function(){
+ 					var checkedValue = $(this).attr("checked");
+ 					$("input.checked").attr("checked", checkedValue); });
+				}); 
+		</script>
 		';
 }
 
 //Custom Admin JS
-function sdac_translate_admin_js() {
-	wp_enqueue_script('jquery', '', '', '', FALSE);
-	echo '
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function(){ 
-				jQuery("#checkAll").click( function(){
- 					var checkedValue = jQuery(this).attr("checked");
- 					jQuery("input.checked").attr("checked", checkedValue); });
-				}); 
-		</script>
-		';
+function sdac_translate_admin_enqueue_js() {
+	wp_enqueue_script('jquery');
 }
 
 add_action('admin_init', 'sdac_translate_init' );
@@ -110,8 +107,8 @@ function sdac_translate_init(){
 // Add menu page
 function sdac_translate_add_page() {
 	$sdac_translate = add_options_page('SDAC Translate', 'SDAC Translate', 'manage_options', 'sdac_translate_options', 'sdac_translate_options_do_page');
-	add_action( "admin_print_scripts-$sdac_translate", 'sdac_translate_admin_js' );
-	add_action( "admin_head-$sdac_translate", 'sdac_translate_admin_css' );
+	add_action( "admin_print_scripts-$sdac_translate", 'sdac_translate_admin_enqueue_js' );
+	add_action( "admin_head-$sdac_translate", 'sdac_translate_admin_css_js' );
 }
 
 // Set Up All Countries Used
@@ -179,8 +176,6 @@ function sdac_translate_options_do_page() {
 							<option value="Flags">Flags</option>
 							<option value="Text">Text</option>
 							<option value="Both">Both</option>
-							
-							
 						</select>	
 					</div>
 					<div class="item check">
@@ -266,6 +261,7 @@ function sdac_translate_validate( $input ) {
 	do_action('sdac_translate_validate');
 	
 	foreach ( $countries as $country ) {
+		$input['show_type'] = esc_attr( $input['show_type'] );
 		$input[''.$country['lang'].'_show'] = esc_attr( $input[''.$country['lang'].'_show'] );
 	}
 	return $input;

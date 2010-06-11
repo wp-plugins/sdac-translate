@@ -29,11 +29,22 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 == Screenshots ==
 - No screenshosts at this time.
 
-== Upgrade Notice ==
-1.0 Initial release
-
 == Changelog ==
-1.0 Initial release
+
+= 1.01 = 
+* Changed admin JS code
+* Added in additional validation
+
+= 1.0 =
+*  Initial release 
+
+== Upgrade Notice ==
+
+= 1.01 = 
+Upgrade to use more efficient JS in the admin and validation on all fields
+
+= 1.0 =
+Initial release
 
 == Notes ==
 1. I wanted to keep this plugin as lightweight as possible so the widget output is cached and the images are all in one image.
