@@ -31,6 +31,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 
 == Changelog ==
 
+= 1.02 = 
+* Fixed index issue
+
 = 1.01 = 
 * Changed admin JS code
 * Added in additional validation
@@ -39,6 +42,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 *  Initial release 
 
 == Upgrade Notice ==
+
+= 1.02 = 
+Upgrade includes minor fix to the data array.
 
 = 1.01 = 
 Upgrade to use more efficient JS in the admin and validation on all fields
