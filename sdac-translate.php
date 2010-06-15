@@ -58,7 +58,7 @@ function sdac_translate_shared_css() {
 }
 
 //Custom Admin CSS
-function sdac_translate_admin_css() {
+function sdac_translate_admin_css_js() {
 	global $sdac_plugin_url;
 	echo '
 		<style type="text/css">
@@ -80,22 +80,19 @@ function sdac_translate_admin_css() {
 			.wp-admin #sdacTranslate .item p.countryOption span {height:16px;line-height:16px !important;}
 			'.sdac_translate_shared_css().'
 		</style>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$("#checkAll").click( function(){
+ 					var checkedValue = $(this).attr("checked");
+ 					$("input.checked").attr("checked", checkedValue); });
+				}); 
+		</script>
 		';
 }
 
 //Custom Admin JS
-function sdac_translate_admin_js() {
-	wp_enqueue_script('jquery', '', '', '', FALSE);
-	echo '
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function(){ 
-				jQuery("#checkAll").click( function(){
- 					var checkedValue = jQuery(this).attr("checked");
- 					jQuery("input.checked").attr("checked", checkedValue); });
-				}); 
-		</script>
-		';
+function sdac_translate_admin_enqueue_js() {
+	wp_enqueue_script('jquery');
 }
 
 add_action('admin_init', 'sdac_translate_init' );
@@ -110,53 +107,53 @@ function sdac_translate_init(){
 // Add menu page
 function sdac_translate_add_page() {
 	$sdac_translate = add_options_page('SDAC Translate', 'SDAC Translate', 'manage_options', 'sdac_translate_options', 'sdac_translate_options_do_page');
-	add_action( "admin_print_scripts-$sdac_translate", 'sdac_translate_admin_js' );
-	add_action( "admin_head-$sdac_translate", 'sdac_translate_admin_css' );
+	add_action( "admin_print_scripts-$sdac_translate", 'sdac_translate_admin_enqueue_js' );
+	add_action( "admin_head-$sdac_translate", 'sdac_translate_admin_css_js' );
 }
 
 // Set Up All Countries Used
 $countries = array(
-	array( 'lang' => 'Albanian', lang_code => 'sq' ),	
-	array( 'lang' => 'Arabic', lang_code => 'ar'),	
-	array( 'lang' => 'Bulgarian', lang_code => 'bg'),	
-	array( 'lang' => 'Catalan', lang_code => 'ca' ),	
-	array( 'lang' => 'Chinese Simplified', lang_code => 'zh-CN' ),	
-	array( 'lang' => 'Chinese Traditional', lang_code => 'zh-TW' ),	
-	array( 'lang' => 'Croatian', lang_code => 'hr' ),	
-	array( 'lang' => 'Czech', lang_code => 'cs' ),	
-	array( 'lang' => 'Danish', lang_code => 'da' ),	
-	array( 'lang' => 'Dutch', lang_code => 'nl' ),	
-	array( 'lang' => 'Estonian', lang_code => 'et' ),	
-	array( 'lang' => 'Filipino', lang_code => 'tl' ),	
-	array( 'lang' => 'Finnish', lang_code => 'fi' ),	
-	array( 'lang' => 'French', lang_code => 'fr' ),	
-	array( 'lang' => 'Galician', lang_code => 'gl' ),	
-	array( 'lang' => 'German', lang_code => 'de' ),	
-	array( 'lang' => 'Greek', lang_code => 'el' ),	
-	array( 'lang' => 'Hebrew', lang_code => 'iw' ),	
-	array( 'lang' => 'Hindi', lang_code => 'hi' ),	
-	array( 'lang' => 'Hungarian', lang_code => 'hu' ),	
-	array( 'lang' => 'Indonesian', lang_code => 'id' ),	
-	array( 'lang' => 'Italian', lang_code => 'it' ),	
-	array( 'lang' => 'Japanese', lang_code => 'ja' ),	
-	array( 'lang' => 'Korean', lang_code => 'ko' ),	
-	array( 'lang' => 'Lativian', lang_code => 'lv' ),	
-	array( 'lang' => 'Lithuanian', lang_code => 'lt' ),	
-	array( 'lang' => 'Maltese', lang_code => 'mt' ),	
-	array( 'lang' => 'Norwegian', lang_code => 'no' ),	
-	array( 'lang' => 'Polish', lang_code => 'pl' ),	
-	array( 'lang' => 'Portuguese', lang_code => 'pt' ),	
-	array( 'lang' => 'Romanian', lang_code => 'ro' ),	
-	array( 'lang' => 'Russian', lang_code => 'ru' ),	
-	array( 'lang' => 'Serbian', lang_code => 'sr' ),	
-	array( 'lang' => 'Slovak', lang_code => 'sk' ),	
-	array( 'lang' => 'Slovenian', lang_code => 'sl' ),	
-	array( 'lang' => 'Spanish', lang_code => 'es' ),	
-	array( 'lang' => 'Swedish', lang_code => 'sv' ),	
-	array( 'lang' => 'Thai', lang_code => 'th' ),	
-	array( 'lang' => 'Turkish', lang_code => 'tr' ),	
-	array( 'lang' => 'Ukrainian', lang_code => 'uk' ),	
-	array( 'lang' => 'Vietnamese', lang_code => 'vi' ),	
+	array( 'lang' => 'Albanian', 'lang_code' => 'sq' ),	
+	array( 'lang' => 'Arabic', 'lang_code' => 'ar'),	
+	array( 'lang' => 'Bulgarian', 'lang_code' => 'bg'),	
+	array( 'lang' => 'Catalan', 'lang_code' => 'ca' ),	
+	array( 'lang' => 'Chinese Simplified', 'lang_code' => 'zh-CN' ),	
+	array( 'lang' => 'Chinese Traditional', 'lang_code' => 'zh-TW' ),	
+	array( 'lang' => 'Croatian', 'lang_code' => 'hr' ),	
+	array( 'lang' => 'Czech', 'lang_code' => 'cs' ),	
+	array( 'lang' => 'Danish', 'lang_code' => 'da' ),	
+	array( 'lang' => 'Dutch', 'lang_code' => 'nl' ),	
+	array( 'lang' => 'Estonian', 'lang_code' => 'et' ),	
+	array( 'lang' => 'Filipino', 'lang_code' => 'tl' ),	
+	array( 'lang' => 'Finnish', 'lang_code' => 'fi' ),	
+	array( 'lang' => 'French', 'lang_code' => 'fr' ),	
+	array( 'lang' => 'Galician', 'lang_code' => 'gl' ),	
+	array( 'lang' => 'German', 'lang_code' => 'de' ),	
+	array( 'lang' => 'Greek', 'lang_code' => 'el' ),	
+	array( 'lang' => 'Hebrew', 'lang_code' => 'iw' ),	
+	array( 'lang' => 'Hindi', 'lang_code' => 'hi' ),	
+	array( 'lang' => 'Hungarian', 'lang_code' => 'hu' ),	
+	array( 'lang' => 'Indonesian', 'lang_code' => 'id' ),	
+	array( 'lang' => 'Italian', 'lang_code' => 'it' ),	
+	array( 'lang' => 'Japanese', 'lang_code' => 'ja' ),	
+	array( 'lang' => 'Korean', 'lang_code' => 'ko' ),	
+	array( 'lang' => 'Lativian', 'lang_code' => 'lv' ),	
+	array( 'lang' => 'Lithuanian', 'lang_code' => 'lt' ),	
+	array( 'lang' => 'Maltese', 'lang_code' => 'mt' ),	
+	array( 'lang' => 'Norwegian', 'lang_code' => 'no' ),	
+	array( 'lang' => 'Polish', 'lang_code' => 'pl' ),	
+	array( 'lang' => 'Portuguese', 'lang_code' => 'pt' ),	
+	array( 'lang' => 'Romanian', 'lang_code' => 'ro' ),	
+	array( 'lang' => 'Russian', 'lang_code' => 'ru' ),	
+	array( 'lang' => 'Serbian', 'lang_code' => 'sr' ),	
+	array( 'lang' => 'Slovak', 'lang_code' => 'sk' ),	
+	array( 'lang' => 'Slovenian', 'lang_code' => 'sl' ),	
+	array( 'lang' => 'Spanish', 'lang_code' => 'es' ),	
+	array( 'lang' => 'Swedish', 'lang_code' => 'sv' ),	
+	array( 'lang' => 'Thai', 'lang_code' => 'th' ),	
+	array( 'lang' => 'Turkish', 'lang_code' => 'tr' ),	
+	array( 'lang' => 'Ukrainian', 'lang_code' => 'uk' ),	
+	array( 'lang' => 'Vietnamese', 'lang_code' => 'vi' ),	
 );
 
 // Draw the menu page itself
@@ -179,8 +176,6 @@ function sdac_translate_options_do_page() {
 							<option value="Flags">Flags</option>
 							<option value="Text">Text</option>
 							<option value="Both">Both</option>
-							
-							
 						</select>	
 					</div>
 					<div class="item check">
@@ -266,6 +261,7 @@ function sdac_translate_validate( $input ) {
 	do_action('sdac_translate_validate');
 	
 	foreach ( $countries as $country ) {
+		$input['show_type'] = esc_attr( $input['show_type'] );
 		$input[''.$country['lang'].'_show'] = esc_attr( $input[''.$country['lang'].'_show'] );
 	}
 	return $input;
