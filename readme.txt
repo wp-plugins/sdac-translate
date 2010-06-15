@@ -3,7 +3,7 @@ Tags: translation, translate, widget, sidebar widget
 Contributors: jenz
 Requires at least: 2.8
 Tested up to: 3.0
-Stable tag: 1.0
+Stable tag: 1.0.2
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4761649
 
 == Description ==
@@ -27,7 +27,7 @@ Enjoy!
 You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-translate
 
 == Screenshots ==
-- No screenshosts at this time.
+1. Admin options
 
 == Changelog ==
 
