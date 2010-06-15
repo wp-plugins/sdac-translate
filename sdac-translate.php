@@ -2,9 +2,9 @@
 /*
 Plugin Name: SDAC Translate
 Plugin URI: http://www.sandboxdev.com/blog-and-cms-development/wordpress/wordpress-plugins/
-Description: Offer simple and lightweight site translation with this sidebar widget.
+Description: Offer simple and lightweight site translation using <a href="http://translate.google.com/" target="_blank">Google Translate</a> with this sidebar widget.
 Author: Jennifer Zelazny/SDAC Inc.
-Version: 1.0
+Version: 1.0.2
 Author URI: http://www.sandboxdev.com/
 */
 

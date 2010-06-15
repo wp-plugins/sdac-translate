@@ -1,5 +1,5 @@
 === SDAC Translate ===
-Tags: translation, translate, widget, sidebar widget
+Tags: translation, translate, widget, sidebar widget, Google Translate
 Contributors: jenz
 Requires at least: 2.8
 Tested up to: 3.0
@@ -7,7 +7,7 @@ Stable tag: 1.0.2
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4761649
 
 == Description ==
-The SDAC Translate plugin uses Google's translate to translate your site's content in multiple languages using a simple sidebar widget that is fully customizable.
+The SDAC Translate plugin uses Google Translate to translate your site's content in multiple languages using a simple sidebar widget that is fully customizable.
 
 == Installation ==
 1. Unzip into your plugins directory (usually `/wp-content/plugins/`). 
