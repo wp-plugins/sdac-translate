@@ -3,7 +3,7 @@ Tags: translation, translate, widget, sidebar widget, Google Translate
 Contributors: jenz
 Requires at least: 2.8
 Tested up to: 3.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4761649
 
 == Description ==
@@ -31,6 +31,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 
 == Changelog ==
 
+= 1.03 = 
+* Condensed CSS
+
 = 1.02 = 
 * Fixed index issue
 
@@ -42,6 +45,8 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 *  Initial release 
 
 == Upgrade Notice ==
+= 1.03 = 
+Upgrade includes minor change to CSS output.
 
 = 1.02 = 
 Upgrade includes minor fix to the data array.

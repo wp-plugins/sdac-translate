@@ -4,14 +4,14 @@ Plugin Name: SDAC Translate
 Plugin URI: http://www.sandboxdev.com/blog-and-cms-development/wordpress/wordpress-plugins/
 Description: Offer simple and lightweight site translation using <a href="http://translate.google.com/" target="_blank">Google Translate</a> with this sidebar widget.
 Author: Jennifer Zelazny/SDAC Inc.
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://www.sandboxdev.com/
 */
 
 
 // House cleaning
 if ( function_exists('register_deactivation_hook') ) { 
-	register_deactivation_hook( __FILE__, 'sdac_translate_cleanup_hook');
+	register_deactivation_hook( __FILE__, 'sdac_translate_cleanup_hook' );
 }
 
 //Clean up options table when deactivated	
@@ -22,7 +22,7 @@ function sdac_translate_cleanup_hook() {
 
 // Plugin location
 $sdac_plugin_directory_slug = '/' . basename( dirname( __FILE__ ) ); 
-if ( function_exists('wpcom_is_vip')  || function_exists('wp_is_sdac')) { 
+if ( function_exists('wpcom_is_vip')  || function_exists('wp_is_sdac') ) { 
 	$sdac_plugin_url = get_bloginfo('template_url').'/plugins/'.$sdac_plugin_directory_slug;
 } else {
 	$sdac_plugin_url = WP_PLUGIN_URL . $sdac_plugin_directory_slug;
@@ -32,26 +32,16 @@ if ( function_exists('wpcom_is_vip')  || function_exists('wp_is_sdac')) {
 function sdac_translate_shared_css() {
 	$styles = '
 		#sdacTranslate .sdacFlag {height:11px !important;line-height:11px !important;margin-top:3px;}
-		#sdacTranslate .sdacFlag#sq {background-position: 0 0;} #sdacTranslate .sdacFlag#ar {background-position: 0 -11px;}
-		#sdacTranslate .sdacFlag#bg {background-position: 0 -22px;} #sdacTranslate .sdacFlag#ca {background-position: 0 -33px;}
-		#sdacTranslate .sdacFlag#zh-CN {background-position: 0 -44px;} #sdacTranslate .sdacFlag#zh-TW {background-position: 0 -44px;} 
-		#sdacTranslate .sdacFlag#hr {background-position: 0 -55px;} #sdacTranslate .sdacFlag#cs {background-position: 0 -66px;}
-		#sdacTranslate .sdacFlag#da {background-position: 0 -77px;} #sdacTranslate .sdacFlag#nl {background-position: 0 -88px;}
-		#sdacTranslate .sdacFlag#et {background-position: 0 -99px;} #sdacTranslate .sdacFlag#tl {background-position: 0 -110px;} 
-		#sdacTranslate .sdacFlag#fi {background-position: 0 -121px;} #sdacTranslate .sdacFlag#fr {background-position: 0 -132px;}
-		#sdacTranslate .sdacFlag#gl {background-position: 0 -143px;} #sdacTranslate .sdacFlag#de {background-position: 0 -154px;}
-		#sdacTranslate .sdacFlag#el {background-position: 0 -165px;} #sdacTranslate .sdacFlag#iw {background-position: 0 -176px;}
-		#sdacTranslate .sdacFlag#hi {background-position: 0 -187px;} #sdacTranslate .sdacFlag#hu {background-position: 0 -198px;} 
-		#sdacTranslate .sdacFlag#id {background-position: 0 -209px;} #sdacTranslate .sdacFlag#it {background-position: 0 -220px;} 
-		#sdacTranslate .sdacFlag#ja {background-position: 0 -231px;} #sdacTranslate .sdacFlag#ko {background-position: 0 -242px;} 
-		#sdacTranslate .sdacFlag#lv {background-position: 0 -253px;} #sdacTranslate .sdacFlag#lt {background-position: 0 -264px;} 
-		#sdacTranslate .sdacFlag#mt {background-position: 0 -275px;} #sdacTranslate .sdacFlag#no {background-position: 0 -286px;} 
-		#sdacTranslate .sdacFlag#pl {background-position: 0 -297px;} #sdacTranslate .sdacFlag#pt {background-position: 0 -308px;} 
-		#sdacTranslate .sdacFlag#ro {background-position: 0 -319px;} #sdacTranslate .sdacFlag#ru {background-position: 0 -330px;} 
-		#sdacTranslate .sdacFlag#sr {background-position: 0 -341px;} #sdacTranslate .sdacFlag#sk {background-position: 0 -352px;} 
-		#sdacTranslate .sdacFlag#sl {background-position: 0 -363px;} #sdacTranslate .sdacFlag#es {background-position: 0 -374px;} 
-		#sdacTranslate .sdacFlag#sv {background-position: 0 -385px;} #sdacTranslate .sdacFlag#th {background-position: 0 -396px;} 
-		#sdacTranslate .sdacFlag#tr {background-position: 0 -407px;} #sdacTranslate .sdacFlag#uk {background-position: 0 -418px;} 
+		#sdacTranslate .sdacFlag#sq {background-position: 0 0;} #sdacTranslate .sdacFlag#ar {background-position: 0 -11px;} #sdacTranslate .sdacFlag#bg {background-position: 0 -22px;} #sdacTranslate .sdacFlag#ca {background-position: 0 -33px;}
+		#sdacTranslate .sdacFlag#zh-CN {background-position: 0 -44px;} #sdacTranslate .sdacFlag#zh-TW {background-position: 0 -44px;} #sdacTranslate .sdacFlag#hr {background-position: 0 -55px;} #sdacTranslate .sdacFlag#cs {background-position: 0 -66px;}
+		#sdacTranslate .sdacFlag#da {background-position: 0 -77px;} #sdacTranslate .sdacFlag#nl {background-position: 0 -88px;} #sdacTranslate .sdacFlag#et {background-position: 0 -99px;} #sdacTranslate .sdacFlag#tl {background-position: 0 -110px;} 
+		#sdacTranslate .sdacFlag#fi {background-position: 0 -121px;} #sdacTranslate .sdacFlag#fr {background-position: 0 -132px;} #sdacTranslate .sdacFlag#gl {background-position: 0 -143px;} #sdacTranslate .sdacFlag#de {background-position: 0 -154px;}
+		#sdacTranslate .sdacFlag#el {background-position: 0 -165px;} #sdacTranslate .sdacFlag#iw {background-position: 0 -176px;} #sdacTranslate .sdacFlag#hi {background-position: 0 -187px;} #sdacTranslate .sdacFlag#hu {background-position: 0 -198px;} 
+		#sdacTranslate .sdacFlag#id {background-position: 0 -209px;} #sdacTranslate .sdacFlag#it {background-position: 0 -220px;} #sdacTranslate .sdacFlag#ja {background-position: 0 -231px;} #sdacTranslate .sdacFlag#ko {background-position: 0 -242px;} 
+		#sdacTranslate .sdacFlag#lv {background-position: 0 -253px;} #sdacTranslate .sdacFlag#lt {background-position: 0 -264px;} #sdacTranslate .sdacFlag#mt {background-position: 0 -275px;} #sdacTranslate .sdacFlag#no {background-position: 0 -286px;} 
+		#sdacTranslate .sdacFlag#pl {background-position: 0 -297px;} #sdacTranslate .sdacFlag#pt {background-position: 0 -308px;} #sdacTranslate .sdacFlag#ro {background-position: 0 -319px;} #sdacTranslate .sdacFlag#ru {background-position: 0 -330px;} 
+		#sdacTranslate .sdacFlag#sr {background-position: 0 -341px;} #sdacTranslate .sdacFlag#sk {background-position: 0 -352px;} #sdacTranslate .sdacFlag#sl {background-position: 0 -363px;} #sdacTranslate .sdacFlag#es {background-position: 0 -374px;} 
+		#sdacTranslate .sdacFlag#sv {background-position: 0 -385px;} #sdacTranslate .sdacFlag#th {background-position: 0 -396px;} #sdacTranslate .sdacFlag#tr {background-position: 0 -407px;} #sdacTranslate .sdacFlag#uk {background-position: 0 -418px;} 
 		#sdacTranslate .sdacFlag#vi {background-position: 0 -429px;}
 	';
 	return $styles;
@@ -101,12 +91,12 @@ add_action('admin_menu', 'sdac_translate_add_page');
 
 // Init plugin options to white list our options
 function sdac_translate_init(){
-	register_setting( 'sdac_translate_options', 'sdac_translate', 'sdac_translate_validate');
+	register_setting( 'sdac_translate_options', 'sdac_translate', 'sdac_translate_validate' );
 }
 
 // Add menu page
 function sdac_translate_add_page() {
-	$sdac_translate = add_options_page('SDAC Translate', 'SDAC Translate', 'manage_options', 'sdac_translate_options', 'sdac_translate_options_do_page');
+	$sdac_translate = add_options_page( 'SDAC Translate', 'SDAC Translate', 'manage_options', 'sdac_translate_options', 'sdac_translate_options_do_page' );
 	add_action( "admin_print_scripts-$sdac_translate", 'sdac_translate_admin_enqueue_js' );
 	add_action( "admin_head-$sdac_translate", 'sdac_translate_admin_css_js' );
 }
@@ -299,4 +289,4 @@ function sdac_translate_css() {
 		</style>
 		';
 }		
-add_action('wp_head', 'sdac_translate_css');
+add_action( 'wp_head', 'sdac_translate_css' );
