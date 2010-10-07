@@ -30,6 +30,8 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 1. Admin options
 
 == Changelog ==
+= 1.1 = 
+* Code clean up, new admin style
 
 = 1.03 = 
 * Condensed CSS
@@ -45,6 +47,10 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 *  Initial release 
 
 == Upgrade Notice ==
+
+= 1.1 = 
+Upgrade includes updates to admin functions and CSS.
+
 = 1.03 = 
 Upgrade includes minor change to CSS output.
 
