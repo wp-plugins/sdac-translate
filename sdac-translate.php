@@ -6,6 +6,17 @@ Description: Offer simple and lightweight site translation using <a href="http:/
 Author: Jennifer Zelazny/SDAC Inc.
 Version: 1.1
 Author URI: http://www.sandboxdev.com/
+---------------------------------------------------
+Released under the GPL license
+http://www.opensource.org/licenses/gpl-license.php
+---------------------------------------------------
+This is an add-on for WordPress
+http://wordpress.org/
+---------------------------------------------------
+This plugin is distributed  WITHOUT ANY WARRANTY; 
+without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+---------------------------------------------------
 */
 
 
