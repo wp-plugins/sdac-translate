@@ -2,8 +2,8 @@
 Tags: translation, translate, widget, sidebar widget, Google Translate
 Contributors: jenz
 Requires at least: 2.8
-Tested up to: 3.0
-Stable tag: 1.1
+Tested up to: 3.1
+Stable tag: 1.2
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4761649
 
 == Description ==
@@ -30,6 +30,10 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 1. Admin options
 
 == Changelog ==
+= 1.2 = 
+* Added English as a new language option (as requested)
+* Removed some un-used images (admin)
+
 = 1.1 = 
 * Code clean up, new admin style
 
@@ -47,6 +51,8 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 *  Initial release 
 
 == Upgrade Notice ==
+= 1.2 = 
+Upgrade includes English as a new language option
 
 = 1.1 = 
 Upgrade includes updates to admin functions and CSS.
