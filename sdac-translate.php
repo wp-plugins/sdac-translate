@@ -4,19 +4,8 @@ Plugin Name: SDAC Translate
 Plugin URI: http://www.sandboxdev.com/blog-and-cms-development/wordpress/wordpress-plugins/
 Description: Offer simple and lightweight site translation using <a href="http://translate.google.com/" target="_blank">Google Translate</a> with this sidebar widget.
 Author: Jennifer Zelazny/SDAC Inc.
-Version: 1.1
+Version: 1.2
 Author URI: http://www.sandboxdev.com/
----------------------------------------------------
-Released under the GPL license
-http://www.opensource.org/licenses/gpl-license.php
----------------------------------------------------
-This is an add-on for WordPress
-http://wordpress.org/
----------------------------------------------------
-This plugin is distributed  WITHOUT ANY WARRANTY; 
-without even the implied warranty of 
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
----------------------------------------------------
 */
 
 
@@ -85,7 +74,8 @@ $countries = array(
 	array( 'lang' => 'Croatian', 'lang_code' => 'hr' ),	
 	array( 'lang' => 'Czech', 'lang_code' => 'cs' ),	
 	array( 'lang' => 'Danish', 'lang_code' => 'da' ),	
-	array( 'lang' => 'Dutch', 'lang_code' => 'nl' ),	
+	array( 'lang' => 'Dutch', 'lang_code' => 'nl' ),
+	array( 'lang' => 'English', 'lang_code' => 'en' ),
 	array( 'lang' => 'Estonian', 'lang_code' => 'et' ),	
 	array( 'lang' => 'Filipino', 'lang_code' => 'tl' ),	
 	array( 'lang' => 'Finnish', 'lang_code' => 'fi' ),	
@@ -263,11 +253,11 @@ function sdac_translate_css() {
 		$styles .= 'ul#sdac_translate li {float:left;width:49%;margin-right:10px;background:none !important;margin:0 !important;padding:0 !important;font-size:90% !important;}';
 	}
 	else if ( $sdac_translate['show_type'] !== 'Text' ) {
-		$styles .= '#sdac_translate a.sdac_flag {float:left !important;display:block !important;background: url('.plugins_url( 'images/flags.gif', __FILE__ ).'); background-repeat:no-repeat  !important;height:11px !important;line-height:11px !important;margin-left:5px !important;padding-left:20px !important;}';
+		$styles .= '#sdac_translate a.sdac_flag {float:left !important;display:block !important;background: url('.plugins_url( 'images/flags.gif?v2', __FILE__ ).'); background-repeat:no-repeat  !important;height:11px !important;line-height:11px !important;margin-left:5px !important;padding-left:20px !important;}';
 		
 		if ( $sdac_translate['show_type'] == 'Both' ) {
 			$styles .= 'ul#sdac_translate li {float:left;width:49%;margin-right:10px;background:none !important;font-size:90% !important;margin:0 0 10px 0 !important;padding:0 !important;}';
-			$styles .= '#sdac_translate a.sdac_flag {float:left !important;display:block !important;background: url('.plugins_url( 'images/flags.gif', __FILE__ ).'); background-repeat:no-repeat  !important;height:11px !important;line-height:11px !important;margin-left:5px !important;padding-left:20px !important;}';
+			$styles .= '#sdac_translate a.sdac_flag {float:left !important;display:block !important;background: url('.plugins_url( 'images/flags.gif?v2', __FILE__ ).'); background-repeat:no-repeat  !important;height:11px !important;line-height:11px !important;margin-left:5px !important;padding-left:20px !important;}';
 		} 
 		else if ( $sdac_translate['show_type'] == 'Flags' ) {
 			$styles .= 'ul#sdac_translate li.flags_only {background:none !important;float:left;width:25px !important;height:11px !imporant;margin:0 0 10px 0 !important;padding:0 !important;}';
