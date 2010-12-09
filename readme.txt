@@ -3,8 +3,10 @@ Tags: translation, translate, widget, sidebar widget, Google Translate
 Contributors: jenz
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4761649
+
+Simple lightweight language translation sidebar widget that uses Google Translation.
 
 == Description ==
 The SDAC Translate plugin uses Google Translate to translate your site's content in multiple languages using a simple sidebar widget that is fully customizable.
@@ -30,6 +32,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 1. Admin options
 
 == Changelog ==
+= 1.2.1 = 
+* Added a clear div to take care of any float issues.
+
 = 1.2 = 
 * Added English as a new language option (as requested)
 * Removed some un-used images (admin)
@@ -51,6 +56,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 *  Initial release 
 
 == Upgrade Notice ==
+= 1.2.1 = 
+Upgrade includes clear div for any float issues.
+
 = 1.2 = 
 Upgrade includes English as a new language option
 
