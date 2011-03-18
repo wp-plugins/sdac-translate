@@ -16,11 +16,12 @@
 
 #sdac_translate .check div {float:left;display:inline;width:32%;margin-right:5px;}
 #sdac_translate .check label {font-weight:bold;float:none;width:auto}
-#sdac_translate #country_options {width:100%;height:20px;border-bottom:1px dashed #bbb;border-top:1px dashed #bbb;margin:10px 0 10px 0;padding:10px 0 10px 0;}
+#sdac_translate #country_options, #sdac_translate .border {width:100%;height:20px;border-bottom:1px dashed #bbb;border-top:1px dashed #bbb;margin:10px 0 10px 0;padding:10px 0 10px 0;}
 #sdac_translate .country_option input {float:left;width:auto;}
 #sdac_translate .item h4 {float:left;display:inline;width:250px;margin:0;padding:0;}
 #sdac_translate .item h5 {float:left;display:inline;margin:0;padding:0;}
 #sdac_translate .item.check input{vertical-align:text-bottom;}
+#sdac_translate .submit {margin-top:25px;}
 
 #sdac_translate .item .country_option span {float:left;display:block;background: url('../images/flags.gif?v2') no-repeat;height:11px;line-height:11px;margin-left:5px;padding-left:20px;}
 #sdac_translate .sdac_flag {margin-top:2px;}
