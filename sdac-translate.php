@@ -4,7 +4,7 @@ Plugin Name: SDAC Translate
 Plugin URI: http://www.sandboxdev.com/blog-and-cms-development/wordpress/wordpress-plugins/
 Description: Offer simple and lightweight site translation using <a href="http://translate.google.com/" target="_blank">Google Translate</a> with this sidebar widget.
 Author: Jennifer Zelazny/SDAC Inc.
-Version: 1.2.3
+Version: 1.2.4
 Author URI: http://www.sandboxdev.com/
 */
 
@@ -93,7 +93,8 @@ $countries = array(
 	array( 'lang' => 'Filipino', 'lang_code' => 'tl' ),	
 	array( 'lang' => 'Finnish', 'lang_code' => 'fi' ),	
 	array( 'lang' => 'French', 'lang_code' => 'fr' ),	
-	array( 'lang' => 'Galician', 'lang_code' => 'gl' ),	
+	array( 'lang' => 'Galician', 'lang_code' => 'gl' ),
+	array( 'lang' => 'Georgian', 'lang_code' => 'ka' ),
 	array( 'lang' => 'German', 'lang_code' => 'de' ),	
 	array( 'lang' => 'Greek', 'lang_code' => 'el' ),	
 	array( 'lang' => 'Hebrew', 'lang_code' => 'iw' ),
@@ -203,8 +204,8 @@ class sdac_translate_widget extends WP_Widget {
 		
 		<?php
 			// Cached Output
-			$translate = get_transient( 'sdac_translate_widget_code' ); 
-			if ( false === ($translate = get_transient('sdac_translate_widget_code')) ) {
+			$translate = get_transient( 'sdac_translate_widget_output' ); 
+			if ( false === ($translate = get_transient('sdac_translate_widget_output')) ) {
 				if ( $sdac_translate['site_language'] ) {
 					$site_lang =  $sdac_translate['site_language'];
 				} else {
@@ -226,7 +227,7 @@ class sdac_translate_widget extends WP_Widget {
 					}
 					$translate .='</ul>'."\n";
 					$translate .='<div style="clear:both"></div>'."\n";
-					set_transient( 'sdac_translate_widget_code', $translate, 86400 );
+					set_transient( 'sdac_translate_widget_output', $translate, 86400 );
 			}
 			echo $translate;
 		?>
@@ -265,7 +266,7 @@ function sdac_translate_validate( $input ) {
 add_action( 'sdac_translate_validate', 'sdac_invalidate_custom_caches', 1, 2 );
 function sdac_invalidate_custom_caches() {
 	$sdac_translate = get_option( 'sdac_translate' );
-	delete_transient( 'sdac_translate_widget_code' );
+	delete_transient( 'sdac_translate_widget_output' );
 }
 
 
