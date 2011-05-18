@@ -3,7 +3,7 @@ Tags: translation, translate, widget, sidebar widget, Google Translate
 Contributors: jenz
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4761649
 
 Simple lightweight translation sidebar widget that uses Google Translation.
@@ -20,6 +20,7 @@ The SDAC Translate plugin uses Google Translate to translate your site's content
 How to use:
 1. Use the admin to select what languages you would like available to your readers.
 2. Add the widget (Appearance > Widgets) to your sidebar of choice: 
+3. Add the following code to your theme template if you want to place it without using widgets `<?php if ( function_exists('sdac_translate') ) sdac_translate(); ?>`
 
 Enjoy!
 
@@ -32,6 +33,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 1. Admin options
 
 == Changelog ==
+= 1.2.5 = 
+* Added the ability to easily use this outside of widgets (see how to use) (as requested)
+
 = 1.2.4 = 
 * Added Georgian as a new language option (as requested)
 
@@ -66,6 +70,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 *  Initial release 
 
 == Upgrade Notice ==
+= 1.2.5 = 
+Upgrade includes option to use this outside of widgets
+
 = 1.2.4 = 
 Upgrade includes Georgian as a new language option
 
