@@ -4,7 +4,7 @@ Plugin Name: SDAC Translate
 Plugin URI: http://www.sandboxdev.com/blog-and-cms-development/wordpress/wordpress-plugins/
 Description: Offer simple and lightweight site translation using <a href="http://translate.google.com/" target="_blank">Google Translate</a> with this sidebar widget.
 Author: Jennifer Zelazny/SDAC Inc.
-Version: 1.2.4
+Version: 1.2.5
 Author URI: http://www.sandboxdev.com/
 */
 
@@ -188,6 +188,39 @@ function sdac_translate_do_page() {
 }
 
 
+# TRANSLATION FUNCTION
+function sdac_translate() {
+	// Cached Output
+	$translate = get_transient( 'sdac_translate_widget_output' ); 
+	if ( false === ($translate = get_transient('sdac_translate_widget_output')) ) {
+		$sdac_translate = get_option( 'sdac_translate' );
+		if ( $sdac_translate['site_language'] ) {
+			$site_lang =  $sdac_translate['site_language'];
+		} else {
+			$site_lang = 'en';
+		}
+		$translate .= '<ul id="sdac_translate">'."\n";
+			foreach ( $countries as $country ) {
+				if ( $sdac_translate[''.$country['lang'].'_show'] == 'show' ) {
+					if ( $sdac_translate['show_type'] == 'Text' ) {
+						$translate .= '<li><a href="http://translate.google.com/translate?hl=en&langpair=en|'.esc_attr( $country['lang_code'] ) .'&u='.get_bloginfo('url').'" title="'.esc_attr( $country['lang'] ).'">'.esc_attr( $country['lang'] ).'</a></li>'."\n";
+					} elseif ( $sdac_translate['show_type'] !== 'Text' ) {
+						if ( $sdac_translate['show_type'] == 'Both' ) {
+							$translate .= '<li><a class="sdac_flag" id="'.esc_attr( $country['lang_code'] ).'" href="http://translate.google.com/translate?hl='.esc_attr( $site_lang ).'&langpair='.esc_attr( $site_lang ).'|'.esc_attr( $country['lang_code'] ).'&u='.get_bloginfo('url').'" title="'.esc_attr( $country['lang'] ).'">'.esc_attr( $country['lang'] ).'</a></li>'."\n";
+						} else {
+							$translate .= '<li class="flags_only"><a class="sdac_flag" id="'.esc_attr( $country['lang_code'] ).'" href="http://translate.google.com/translate?hl='.esc_attr( $site_lang ).'&langpair='.esc_attr( $site_lang ).'|'.esc_attr( $country['lang_code'] ).'&u='.get_bloginfo('url').'" title="'.esc_attr( $country['lang'] ).'"></a></li>'."\n";
+						}
+					}
+				}
+			}
+			$translate .='</ul>'."\n";
+			$translate .='<div style="clear:both"></div>'."\n";
+			set_transient( 'sdac_translate_widget_output', $translate, 86400 );
+	}
+	echo $translate;
+}
+
+
 # TRANSLATION WIDGET
 class sdac_translate_widget extends WP_Widget {
     function  sdac_translate_widget() {
@@ -195,46 +228,16 @@ class sdac_translate_widget extends WP_Widget {
     }
 	function widget($args, $instance) {		
         global $countries;
-        $sdac_translate = get_option( 'sdac_translate' );
+       
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
-        ?>
-       <?php echo $before_widget; ?>
-       <?php if ( $title ) echo $before_title . $title . $after_title; ?>
+        echo $before_widget;
+      	if ( $title ) echo $before_title . $title . $after_title;
 		
-		<?php
-			// Cached Output
-			$translate = get_transient( 'sdac_translate_widget_output' ); 
-			if ( false === ($translate = get_transient('sdac_translate_widget_output')) ) {
-				if ( $sdac_translate['site_language'] ) {
-					$site_lang =  $sdac_translate['site_language'];
-				} else {
-					$site_lang = 'en';
-				}
-				$translate .= '<ul id="sdac_translate">'."\n";
-					foreach ( $countries as $country ) {
-						if ( $sdac_translate[''.$country['lang'].'_show'] == 'show' ) {
-							if ( $sdac_translate['show_type'] == 'Text' ) {
-								$translate .= '<li><a href="http://translate.google.com/translate?hl=en&langpair=en|'.esc_attr( $country['lang_code'] ) .'&u='.get_bloginfo('url').'" title="'.esc_attr( $country['lang'] ).'">'.esc_attr( $country['lang'] ).'</a></li>'."\n";
-							} elseif ( $sdac_translate['show_type'] !== 'Text' ) {
-								if ( $sdac_translate['show_type'] == 'Both' ) {
-									$translate .= '<li><a class="sdac_flag" id="'.esc_attr( $country['lang_code'] ).'" href="http://translate.google.com/translate?hl='.esc_attr( $site_lang ).'&langpair='.esc_attr( $site_lang ).'|'.esc_attr( $country['lang_code'] ).'&u='.get_bloginfo('url').'" title="'.esc_attr( $country['lang'] ).'">'.esc_attr( $country['lang'] ).'</a></li>'."\n";
-								} else {
-									$translate .= '<li class="flags_only"><a class="sdac_flag" id="'.esc_attr( $country['lang_code'] ).'" href="http://translate.google.com/translate?hl='.esc_attr( $site_lang ).'&langpair='.esc_attr( $site_lang ).'|'.esc_attr( $country['lang_code'] ).'&u='.get_bloginfo('url').'" title="'.esc_attr( $country['lang'] ).'"></a></li>'."\n";
-								}
-							}
-						}
-					}
-					$translate .='</ul>'."\n";
-					$translate .='<div style="clear:both"></div>'."\n";
-					set_transient( 'sdac_translate_widget_output', $translate, 86400 );
-			}
-			echo $translate;
-		?>
-			  		
-       <?php echo $after_widget; ?>
-         
-        <?php
+		sdac_translate();
+		
+		echo $after_widget;
+       
     }
     function update($new_instance, $old_instance) {				
         return $new_instance;
