@@ -3,7 +3,7 @@ Tags: translation, translate, widget, sidebar widget, Google Translate
 Contributors: jenz
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4761649
 
 Simple lightweight translation sidebar widget that uses Google Translation.
@@ -33,6 +33,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 1. Admin options
 
 == Changelog ==
+= 1.2.6 = 
+* Fixed display issue introduced with 1.2.5
+
 = 1.2.5 = 
 * Added the ability to easily use this outside of widgets (see how to use) (as requested)
 
@@ -70,6 +73,9 @@ You can submit any issues/feedback: http://sandboxdev.com/forums/forum/sdac-tran
 *  Initial release 
 
 == Upgrade Notice ==
+= 1.2.6 = 
+Fixed display issue introduced with 1.2.5
+
 = 1.2.5 = 
 Upgrade includes option to use this outside of widgets
 
