@@ -4,7 +4,7 @@ Plugin Name: SDAC Translate
 Plugin URI: http://www.sandboxdev.com/blog-and-cms-development/wordpress/wordpress-plugins/
 Description: Offer simple and lightweight site translation using <a href="http://translate.google.com/" target="_blank">Google Translate</a> with this sidebar widget.
 Author: Jennifer Zelazny/SDAC Inc.
-Version: 1.2.5
+Version: 1.2.6
 Author URI: http://www.sandboxdev.com/
 */
 
@@ -190,6 +190,7 @@ function sdac_translate_do_page() {
 
 # TRANSLATION FUNCTION
 function sdac_translate() {
+	global $countries;
 	// Cached Output
 	$translate = get_transient( 'sdac_translate_widget_output' ); 
 	if ( false === ($translate = get_transient('sdac_translate_widget_output')) ) {
@@ -227,7 +228,7 @@ class sdac_translate_widget extends WP_Widget {
         parent::WP_Widget( false, $name = 'SDAC Translate' );	
     }
 	function widget($args, $instance) {		
-        global $countries;
+        
        
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
